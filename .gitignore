@@ -13,9 +13,8 @@ buildNumber.properties
 # Exclude maven wrapper
 !/.mvn/wrapper/maven-wrapper.jar
 
-.gitignore
-.idea/libraries/
-.idea/workspace.xml
+.idea/
+gen/
 src/main/antlr4/.DS_Store
 src/main/antlr4/org/.DS_Store
 src/main/antlr4/org/icroco/.DS_Store

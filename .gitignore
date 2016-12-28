@@ -1,0 +1,24 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Maven template
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Exclude maven wrapper
+!/.mvn/wrapper/maven-wrapper.jar
+
+.gitignore
+.idea/libraries/
+.idea/workspace.xml
+src/main/antlr4/.DS_Store
+src/main/antlr4/org/.DS_Store
+src/main/antlr4/org/icroco/.DS_Store
+src/main/antlr4/org/icroco/chat/.DS_Store
+src/main/java/
+src/test/

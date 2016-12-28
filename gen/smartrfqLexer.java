@@ -74,7 +74,7 @@ public class smartrfqLexer extends Lexer {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "smartrfq.g4"; }
+	public String getGrammarFileName() { return "src/main/antlr4/smartrfq.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }

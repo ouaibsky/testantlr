@@ -1,6 +1,10 @@
-grammar smartrfq;
+grammar SmartRfq;
 
-file: smartrfq (SEMICOLON smartrfq)?;
+@header {
+    //package org.icroco.chat.parser;
+}
+
+file: smartrfq (SEMICOLON smartrfq?)*;
 
 smartrfq: qty instrument market? maturity option;
 

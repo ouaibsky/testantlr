@@ -21,18 +21,30 @@ public class PrintSmartRfq {
 
 	public void parseSmartRfq(String smartRfq) {
 		SmartRfqLexer lexer = new SmartRfqLexer(new ANTLRInputStream(smartRfq));
+		lexer.removeErrorListeners();
+		final SyntaxErrorListener syntaxErrorListener = new SyntaxErrorListener();
+		lexer.addErrorListener(syntaxErrorListener);
 		// Get a list of matched tokens
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
 
 		// Pass the tokens to the parser
 		SmartRfqParser parser = new SmartRfqParser(tokens);
+		parser.removeErrorListeners();
+		parser.addErrorListener(syntaxErrorListener);
 
 		// Specify our entry point
 		final SmartRfqParser.SmartrfqContext smartrfq = parser.smartrfq();
+		System.out.println("Errors Nb: " + parser.getNumberOfSyntaxErrors());
+		System.out.println(syntaxErrorListener.toString());
+		System.out.println("Tokens: " + tokens.getTokens());
+		System.out.println("instr: " + smartrfq.instrument().getText());
+		System.out.println("---");
 	}
 
 	public static void main(String[] args) {
 		final PrintSmartRfq printSmartRfq = new PrintSmartRfq();
-		printSmartRfq.parseSmartRfq("+200k");
+		printSmartRfq.parseSmartRfq("+200k 'fgfgf' 12may2018 E C");
+		printSmartRfq.parseSmartRfq("300k 'fgfgf' 12may2018 E C");
+		printSmartRfq.parseSmartRfq("+300k 'fgfgf 12may2018 E C");
 	}
 }

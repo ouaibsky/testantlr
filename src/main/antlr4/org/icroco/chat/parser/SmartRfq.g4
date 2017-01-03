@@ -57,7 +57,7 @@ QTY: ('+' | '-' | '=')[0-9][0-9]*('k'|'m'|'g')?;
 INTEGER: [0-9][0-9]*;
 
 NAME: [a-zA-Z0-9][a-zA-Z0-9,_-]+;
-STRING : '\'' ( '\\' ['] | ~['\r\n] )* '\'';
+STRING : '\'' ( '\\' ['] | ~['\r\n] )* '\'' {setText(getText().substring(1, getText().length()-2));};
 
 REF: [rR][eE][fF]':';
 

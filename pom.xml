@@ -16,11 +16,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>com.khubla.antlr</groupId>
-                <artifactId>antlr4test-maven-plugin</artifactId>
-                <version>1.6</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
     <dependencies>
@@ -46,23 +41,16 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.antlr</groupId>
+                <groupId>com.khubla.antlr</groupId>
                 <artifactId>antlr4test-maven-plugin</artifactId>
+                <version>1.6</version>
                 <configuration>
                     <verbose>true</verbose>
                     <showTree>true</showTree>
                     <entryPoint>equation</entryPoint>
                     <grammarName>tnt</grammarName>
                     <packageName></packageName>
-                    <testFileExtension>.txt</testFileExtension>
+                    <!--<testFileExtension>.txt</testFileExtension>-->
                     <exampleFiles>src/test/resources/smartrfq</exampleFiles>
                 </configuration>
             </plugin>

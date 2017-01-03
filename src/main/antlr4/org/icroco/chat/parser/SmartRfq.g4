@@ -10,20 +10,24 @@ options {
 
 file: smartrfq (SEMICOLON smartrfq?)*;
 
-smartrfq: qty instrument market? maturity option;
+smartrfq: quantities instrument market? maturities option;
+
+quantities: qty ('/' qty)*;
 
 qty: QTY;
 
 instrument: NAME |  STRING ;
 
-maturity: DATE_SHORT | DATE_LONG;
+maturities: maturity ('/' maturity)*;
+
+maturity: DATE_SHORT | DATE_LONG ;
 
 option: optExecType optType ref?;
 
 optExecType: OPT_EXEC_TYPE;
 optType: OPT_TYPE;
 
-ref: REF INTEGER;
+ref: REF INTEGER('/' INTEGER)*;
 
 market: NAME;
 
@@ -53,7 +57,7 @@ QTY: ('+' | '-' | '=')[0-9][0-9]*('k'|'m'|'g')?;
 INTEGER: [0-9][0-9]*;
 
 NAME: [a-zA-Z0-9][a-zA-Z0-9,_-]+;
-STRING : '\'' ( '\\' [\\'] | ~[\\'\r\n] )* '\'';
+STRING : '\'' ( '\\' ['] | ~['\r\n] )* '\'';
 
 REF: [rR][eE][fF]':';
 
